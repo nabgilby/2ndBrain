@@ -22,6 +22,12 @@ import { Settings } from '../providers/providers';
 
 import { TranslateService } from '@ngx-translate/core'
 
+//import Parse from 'parse'
+
+var Parse = require('parse'); 
+
+
+
 @Component({
   template: `<ion-menu [content]="content">
     <ion-header>
@@ -66,11 +72,21 @@ export class MyApp {
   }
 
   ionViewDidLoad() {
+   console.log("ionViewDidLoad platform ready =" + this.platform.ready());
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+
+      //PARSE KEYS. App id , JavaScript id
+      Parse.initialize("ZVQPgkiNjlJ7Sz05HOv9tbjKysjCZpDB8iV8mSQI", "UPQQogWQZAEUtAcVQoqkaWtBcIy9P9BNdwHQ5Y26");
+      console.log("Parse Init");
+
+      Parse.serverURL = 'https://parseapi.back4app.com/'
+      console.log("Parse =" + Parse)
+
     });
   }
 

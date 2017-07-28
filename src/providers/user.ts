@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { Api } from './api';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -26,16 +26,21 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class User {
   _user: any;
+  headers: Headers;
+
 
   constructor(public http: Http, public api: Api) {
   }
 
   /**
    * Send a POST request to our login endpoint with the data
-   * the user entered on the form.
+   * the user entered on the form.   CAN WE DO THIS WITH JS API CALL INSTEAD????
    */
   login(accountInfo: any) {
-    let seq = this.api.post('login', accountInfo).share();
+   /* let seq = this.api.post('login', accountInfo).share();
+   */
+
+   let seq = this.api.get('login', accountInfo).share();
 
     seq
       .map(res => res.json())
@@ -43,6 +48,7 @@ export class User {
         // If the API returned a successful response, mark the user as logged in
         if (res.status == 'success') {
           this._loggedIn(res);
+          console.log(res);
         } else {
         }
       }, err => {
@@ -57,7 +63,8 @@ export class User {
    * the user entered on the form.
    */
   signup(accountInfo: any) {
-    let seq = this.api.post('signup', accountInfo).share();
+   // let seq = this.api.post('signup', accountInfo).share();
+    let seq = this.api.post('users', accountInfo).share();
 
     seq
       .map(res => res.json())
