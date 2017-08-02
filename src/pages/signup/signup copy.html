@@ -1,0 +1,62 @@
+<ion-navbar>
+    <ion-title>{{ 'SIGNUP_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+<ion-content scroll="false">
+  <div class="new-account"></div>
+  <div class="splash-info">
+    <div class="add-logo"></div>
+    <div class="splash-intro">
+      {{ 'Create New Account' | translate }}
+    </div>
+  </div>
+  <ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'SIGNUP_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form (submit)="doSignup()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label>{{ 'Name'}}</ion-label>
+        <ion-input type="text" [(ngModel)]="account.name" name="name"></ion-input>
+      </ion-item>
+<ion-item>
+        <ion-label>{{ 'Email'}}</ion-label>
+        <ion-input type="text" [(ngModel)]="account.name" name="name"></ion-input>
+      </ion-item>
+<ion-item>
+        <ion-label>{{ 'Confirm Email'}}</ion-label>
+        <ion-input type="text" [(ngModel)]="account.name" name="name"></ion-input>
+      </ion-item>
+
+      <!--
+      Want to add a Username? Here you go:
+
+      <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
+      </ion-item>
+      -->
+
+      <ion-item>
+        <ion-label fixed>{{ 'Password'}}</ion-label>
+        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+      </ion-item>
+<ion-item>
+        <ion-label>{{ 'Confirm Password'}}</ion-label>
+        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+      </ion-item>
+
+      <div padding>
+        <button ion-button color="primary" block>{{ 'Add_Account' | translate }}</button>
+      </div>
+
+    </ion-list>
+  </form>
+</ion-content>
