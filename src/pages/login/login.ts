@@ -34,7 +34,7 @@ export class LoginPage {
     })
   }
 
-  // Attempt to login in through our User service -  HERE CALL PARSE LOGIN? or in USER
+  // Attempt to login in through our User service 
 
   
   doLogin() {
@@ -45,9 +45,9 @@ export class LoginPage {
       this.navCtrl.push(MainPage);
 
       let toastS = this.toastCtrl.create({
-        message: this.account.username+"Signed In",
+        message: this.account.username+" Signed In",
         duration: 6000,
-        position: 'top'
+        position: 'middle'
         });
        toastS.present();
     }, 
@@ -59,7 +59,7 @@ export class LoginPage {
       let toastE = this.toastCtrl.create({
         message: this.loginErrorString,
         duration: 6000,
-        position: 'top'
+        position: 'middle'
         });
         toastE.present(); 
     });

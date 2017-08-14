@@ -25,6 +25,7 @@ import { TranslateService } from '@ngx-translate/core'
 //import Parse from 'parse'
 
 var Parse = require('parse'); 
+//import {Parse} from 'parse';
 
 
 
